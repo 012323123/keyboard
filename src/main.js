@@ -61,6 +61,14 @@ let pretend = actual
 let index
 let wrong = []
 
+let string = '', letter
+do {
+  letter = items[Math.floor(Math.random() * items.length)];
+  if(letter != string.charAt(string.length - 1))
+    string += letter
+} while(string.length < 10)
+$('#element').html(string)
+
 const reset = () => {
   do {
     for(const val of wrong) {
@@ -71,8 +79,7 @@ const reset = () => {
     if(actual == pretend)
       pretend = items[Math.floor(Math.random() * items.length)];
   } while(actual == pretend)
-  
-  $('#element').html(actual = pretend)
+  $('#element').html($('#element').html().substring(1) + (actual = pretend))
 }
 
 $(document).keydown((event) => {
@@ -80,7 +87,7 @@ $(document).keydown((event) => {
   if(event.keyCode > 18 && event.keyCode < 112 || event.keyCode > 123) {
     event.preventDefault()
 
-    if(event.key == actual) {
+    if(event.key == $('#element').html().charAt(0)) {
       if((index = wrong.findIndex(element=>element.letter == event.key)) >= 0) {
         if(wrong[index].times == 1)
           wrong.splice(index, 1);
@@ -95,6 +102,6 @@ $(document).keydown((event) => {
       } else {
         wrong.push({letter: event.key, times: 1})
       }
-    }
+    }console.log(JSON.stringify(wrong))
   }
 });
