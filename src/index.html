@@ -4,9 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    li {
+      background-color: green !important;
+    }
+  </style>
 </head>
 <body style="position: fixed;">
-  <div style="height: 100vh; width: 100vw; background-color: #111;">
+  <div id="settings" style="background-color: green; position:fixed; top:0; left:0; z-index:2;">
+    <h1 style="float:right;" class="text-success">press esc to start</h1>
+    <ul style="float:right;" class="list-group">
+      <li class="list-group-item"><button id="reset" class="btn btn-outline-success" style="float:right;">reset</button></li>
+      <li class="list-group-item"><button id="alt" class="btn btn-outline-success" style="float:right;">alt</button></li>
+      <li class="list-group-item"><button id="shift" class="btn btn-outline-success" style="float:right;">shift</button></li>
+      <li class="list-group-item"><button id="no" class="btn btn-outline-success" style="float:right;">no shift no alt</button></li>
+    </ul>
+    <textarea id="settingsTextArea" style="resize:both;z-index: 2;">
+      asdf
+    </textarea>
+  </div>
+  <div id="main" style="height: 100vh; width: 100vw; background-color: #111;">
       <div class="container-fluid h-100">
         <div class="row h-100">
           <div style="background-color: #111; font-size: 5em;" class="col-12 my-auto text-center justify-content-center">
